@@ -32,34 +32,7 @@ export interface IOptions {
 }
 
 // Для запроса публикаций
-/*
-export interface ISearchDates {
-    issueDateInterval: {
-        startDate: string,
-        endDate: string
-    }
-}
 
-export interface ISearchContext {
-    targetSearchEntitiesContext: ISearchEntitiesContext
-}
-
-interface ISearchEntitiesContext {
-    targetSearchEntities: ITargetSearchEntities,
-    onlyMainRole: boolean,
-    onlyWithRiskFactors: boolean,
-    tonality: string
-}
-
-interface ITargetSearchEntities {
-    type: string,
-    inBusinessNews: boolean,
-    sparkId: number,
-    entityId: number,
-    inn: string,
-    maxFullness: boolean
-}
-*/
 export interface IHistogramData {
     data:IIntervalPoint[]
     histogramType: string

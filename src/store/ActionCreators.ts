@@ -1,5 +1,6 @@
 import { appDispath } from "../store";
 import axios from "axios";
+import { toast } from 'react-toastify';
 import { IAccInfo, ISearchForm } from "../types/interfaces";
 import { formatStartDate, formatEndDate } from "../funcs/someFuncs";
 import { accSlice } from "./AccSlice";
@@ -28,7 +29,16 @@ export const fetchAcc = (login:string, password:string) => async (dispatch:appDi
     }
     catch (e:any) {
         dispatch(accSlice.actions.accFetchingError(e));
-        alert('Неправильный логин или пароль');
+        toast.error('Неправильный логин или пароль.',{
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
     }
 };
 
@@ -198,7 +208,17 @@ export const fetchDoc = (data:ISearchForm) => async (dispatch:appDispath) => {
     catch(e:any) {
         dispatch(docSlice.actions.docFetchingHistogramError);
         dispatch(docSlice.actions.docFetchingPublicationsError);
-        alert('Публикации не найдены. Попробуйте использовать другие параметры.');
+        toast.error('Публикации не найдены. Попробуйте использовать другие параметры.',{
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
+
     }
 }
 

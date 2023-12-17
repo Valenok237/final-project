@@ -1,4 +1,4 @@
-import logo from './footer-logo.svg';
+import logo from './white-logo.svg';
 
 const Footer: React.FC = () => {
     return (  

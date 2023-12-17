@@ -1,4 +1,6 @@
-import {useForm, Controller} from 'react-hook-form';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {useForm} from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useNavigate, Link } from "react-router-dom";
 import { ISubmitFields } from '../../types/interfaces';
@@ -12,6 +14,7 @@ const Form:React.FC = () => {
     const dispatch = useAppDispatch();
     
     const navigate = useNavigate();
+
     useEffect(() => {
         if(isAuth) {
             navigate(-1);
@@ -20,11 +23,12 @@ const Form:React.FC = () => {
 
     const onSubmit = handleSubmit((data) => {
         dispatch(fetchAcc(data.login, data.password));
-        reset()
+        reset();
     });
 
     return (  
         <form onSubmit={onSubmit} className="autorisation-form">
+            <ToastContainer/>
             <div className="autorisation-entrance">
                 <div className="autorisation-entrance__signIn">Войти</div>
                 <div className="autorisation-entrance__signUp">Зарегистрироваться</div>

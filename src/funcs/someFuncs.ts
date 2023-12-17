@@ -39,7 +39,7 @@ export const createContent = (str:string):string => {
 export const imgUrl = (str:string):string => {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(str, 'text/xml');
-    const regularStr = xmlDoc.getElementsByTagName('scandoc')[0].textContent;
+    const regularStr = xmlDoc.getElementsByTagName('scandoc')[0]?.textContent;
     if (regularStr?.includes('srcset="h')) {
         const parts = regularStr?.split('srcset=');
         const part = parts[1].split(' ');

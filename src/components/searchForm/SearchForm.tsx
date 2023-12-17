@@ -1,7 +1,8 @@
 import {Controller, useForm} from 'react-hook-form';
+import { ToastContainer} from 'react-toastify';
 import Select from 'react-select';
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from 'react';
+import { useEffect} from 'react';
 import { ISearchForm, IOptions } from '../../types/interfaces';
 import { isValidDate, isValidINN } from './validation';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
@@ -45,6 +46,7 @@ const SearchForm = () => {
 
     return ( 
         <form onSubmit={onSubmit} className="search-form">
+            <ToastContainer/>
             <div className="search-inputs">
                 <label className="search-inputs__label">ИНН компании*
                     <input style={errors.inn && { borderColor: "red", boxShadow: "0px 0px 20px 0px rgba(255, 89, 89, 0.20)", color: "red"}} className="search-inputs__item" type="text" placeholder="10 цифр"

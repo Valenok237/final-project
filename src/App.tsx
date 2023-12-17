@@ -10,6 +10,7 @@ import Autorisation from './pages/Autorisation';
 import Main from './pages/Main';
 import Result from './pages/Result';
 import Search from './pages/Search';
+import PrivateRoute from './components/route/PrivateRoute';
 
 const App: React.FC = () =>  {
 
@@ -20,7 +21,9 @@ const App: React.FC = () =>  {
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/autorisation' element={<Autorisation/>} />
-          <Route path='/search' element={<Search/>}/>
+          <Route element={<PrivateRoute/>}>
+            <Route path='/search' element={<Search/>}/>
+          </Route>
           <Route path='/result' element={<Result/>} />
         </Routes>
         <Footer/>

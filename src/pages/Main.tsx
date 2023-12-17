@@ -12,16 +12,6 @@ import shield from '../img/shield.svg';
 
 
 const Main: React.FC = () => {
-    const {isAuth} = useAppSelector(state => state.acc);
-    console.log(isAuth);
-    const [href, setHref] = useState('#!');
-    useEffect(() => {
-        if (isAuth) {
-            setHref('/search')
-        } else {
-            setHref('#!');
-        }
-    },[isAuth])
 
     return (  
         <>
@@ -38,7 +28,7 @@ const Main: React.FC = () => {
                             <p className="main-desc__text">
                                 Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
                             </p>
-                            <Link to={href} className="main-desc__btn">Запросить данные</Link>
+                            <Link to='/search' className="main-desc__btn">Запросить данные</Link>
                         </div>
                         <div className="main-decor"> 
                             <img src={mainDecor} alt="Картинка" className="main-decor__img" />
